@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     get :download_csv_by_odometer, on: :collection
   end
 
-  root 'records#new'
+  root 'records#index'
 end

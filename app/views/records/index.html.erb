@@ -1,20 +1,33 @@
 <div class="jumbotron text-center">
-  <%= form_tag records_path, :method => 'get' do %>
-    <p>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "Search" %>
-    </p>
-  <% end %>
+  <div class="jumbotron text-center">
+   <h4> Upload csv </h4>
+    <%= form_with url: "/records", multipart: true do |f| %>
+      <div>
+        <%= f.file_field :file %>
+      </div>
+      <%= f.submit "Upload" %>
+    <% end %>
+  </div>
 </div>
+</br>
+</br>
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-6">
-      <%= button_to "Customers by nationality", download_csv_by_nationality_records_path, method: :get %>
+    <div class="col-sm-4">
+      <%= form_tag records_path, :method => 'get' do %>
+        <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search" %>
+        </p>
+      <% end %>
+    </div>
+    <div class="col-sm-4">
+      <%= button_to "Customers by nationality", download_csv_by_nationality_records_path, method: :get, class: 'btn btn-primary text-right' %>
     </div>
 
-    <div class="col-sm-6">
-      <%= button_to "Odometer readings by nationality", download_csv_by_odometer_records_path, method: :get, style: 'float: right;' %>
+    <div class="col-sm-4">
+      <%= button_to "Odometer readings by nationality", download_csv_by_odometer_records_path, method: :get, class: 'btn btn-primary text-right' %>
     </div>
   </div>
 </div>
