@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version => ruby '3.0.0'
+* Rails version => 6.1.4
 
-Things you may want to cover:
+* Gem install ```bundle install```
 
-* Ruby version
+* Create Database ```rails db:create```  ```rails db:migrate```
 
-* System dependencies
+* To run rails server rails s
+  - run on browser: localhost:3000
 
-* Configuration
+* Services
+  - **ImportData** : This service is used to store data in database of CSV uploded.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Example CSV file : /public/vehicles_data.csv
+* To run test cases ```bundle exec rspec spec```
