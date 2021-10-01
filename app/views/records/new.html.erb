@@ -1,0 +1,9 @@
+<div class="jumbotron text-center">
+ <h4> Upload csv </h4>
+  <%= form_tag records_path, multipart: true do %>
+    <div>
+      <%= file_field_tag :file %>
+    </div>
+    <%= submit_tag "Upload" %>
+  <% end %>
+</div>

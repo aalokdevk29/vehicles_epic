@@ -1,0 +1,46 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <th>Name</th>
+      <th>Nationality</th>
+      <th>Email</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>ChassisNumber</th>
+      <th>Color</th>
+      <th>RegistrationDate</th>
+      <th>OdometerReading</th>
+    </thead>
+    <tbody>
+      <% @vehicle_data.each do |data| %>
+        <tr>
+          <td><%= data.user.name %></td>
+          <td>
+            <%= data.nationality.name %>
+          </td>
+          <td>
+            <%= data.user.email %>
+          </td>
+          <td>
+            <%= data.vehicle.model %>
+          </td>
+          <td>
+            <%= data.vehicle.year %>
+          </td>
+          <td>
+            <%= data.vehicle.chassis_number %>
+          </td>
+          <td>
+            <%= data.vehicle.color %>
+          </td>
+          <td>
+            <%= data.vehicle.registration_date %>
+          </td>
+          <td>
+            <%= data.vehicle.odometer_reading %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
