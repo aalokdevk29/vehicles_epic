@@ -1,3 +1,12 @@
+<div class="jumbotron text-center">
+  <%= form_tag records_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search" %>
+    </p>
+  <% end %>
+</div>
+
 <div class="container">
   <table class="table">
     <thead>
@@ -12,7 +21,7 @@
       <th>OdometerReading</th>
     </thead>
     <tbody>
-      <% @vehicle_data.each do |data| %>
+      <% @records.each do |data| %>
         <tr>
           <td><%= data.user.name %></td>
           <td>

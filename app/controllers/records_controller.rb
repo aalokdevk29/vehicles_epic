@@ -1,6 +1,10 @@
 class RecordsController < ApplicationController
+  def index
+    @records = Record.search(params[:search])
+  end
+
   def new
-    @records = Record.new
+    @record = Record.new
   end
 
   def create
