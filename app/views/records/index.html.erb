@@ -8,48 +8,65 @@
 </div>
 
 <div class="container">
-  <table class="table">
-    <thead>
-      <th>Name</th>
-      <th>Nationality</th>
-      <th>Email</th>
-      <th>Model</th>
-      <th>Year</th>
-      <th>ChassisNumber</th>
-      <th>Color</th>
-      <th>RegistrationDate</th>
-      <th>OdometerReading</th>
-    </thead>
-    <tbody>
-      <% @records.each do |data| %>
-        <tr>
-          <td><%= data.user.name %></td>
-          <td>
-            <%= data.nationality.name %>
-          </td>
-          <td>
-            <%= data.user.email %>
-          </td>
-          <td>
-            <%= data.vehicle.model %>
-          </td>
-          <td>
-            <%= data.vehicle.year %>
-          </td>
-          <td>
-            <%= data.vehicle.chassis_number %>
-          </td>
-          <td>
-            <%= data.vehicle.color %>
-          </td>
-          <td>
-            <%= data.vehicle.registration_date %>
-          </td>
-          <td>
-            <%= data.vehicle.odometer_reading %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= button_to "Customers by nationality", download_csv_by_nationality_records_path, method: :get %>
+    </div>
+
+    <div class="col-sm-6">
+      <%= button_to "Odometer readings by nationality", download_csv_by_odometer_records_path, method: :get, style: 'float: right;' %>
+    </div>
+  </div>
+</div>
+</br>
+
+<div class="container">
+  <% if @records.blank? %>
+    <h4>No Data Avaialble!!!</h4>
+  <% else %>
+    <table class="table">
+      <thead>
+        <th>Name</th>
+        <th>Nationality</th>
+        <th>Email</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>ChassisNumber</th>
+        <th>Color</th>
+        <th>RegistrationDate</th>
+        <th>OdometerReading</th>
+      </thead>
+      <tbody>
+        <% @records.each do |data| %>
+          <tr>
+            <td><%= data.user.name %></td>
+            <td>
+              <%= data.nationality.name %>
+            </td>
+            <td>
+              <%= data.user.email %>
+            </td>
+            <td>
+              <%= data.vehicle.model %>
+            </td>
+            <td>
+              <%= data.vehicle.year %>
+            </td>
+            <td>
+              <%= data.vehicle.chassis_number %>
+            </td>
+            <td>
+              <%= data.vehicle.color %>
+            </td>
+            <td>
+              <%= data.vehicle.registration_date %>
+            </td>
+            <td>
+              <%= data.vehicle.odometer_reading %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
 </div>
